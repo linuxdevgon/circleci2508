@@ -22,8 +22,8 @@
               root: .
               paths:
                 - ./image.tar
-      publish-latest:
-        executor: docker-publisher
+      # publish-latest:
+      #   executor: docker-publisher
         steps:
           - attach_workspace:
               at: /tmp/workspace
