@@ -2,7 +2,7 @@
     executors:
       docker-publisher:
         environment:
-          IMAGE_NAME: jonathancardoso/building-on-ci
+          IMAGE_NAME: linuxdevgon1/building-on-ci
         docker:
           - image: circleci/buildpack-deps:stretch
     jobs:
@@ -36,17 +36,17 @@
               command: |
                 echo "ghbdtn+0662" | docker login -u "linuxdevgon1" --password-stdin
                 docker push $IMAGE_NAME:latest
-    workflows:
-      version: 2
-      build-master:
-        jobs:
-          - build:
-              filters:
-                branches:
-                  only: master
-          - publish-latest:
-              requires:
-                - build
-              filters:
-                branches:
-                  only: master
+    # workflows:
+    #   version: 2
+    #   build-master:
+    #     jobs:
+    #       - build:
+    #           filters:
+    #             branches:
+    #               only: master
+    #       - publish-latest:
+    #           requires:
+    #             - build
+    #           filters:
+    #             branches:
+    #               only: master
